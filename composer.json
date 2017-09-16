@@ -1,0 +1,15 @@
+{
+    "name": "elleyeayeme/case-converter",
+    "description": "A converter for strings in most popular cases",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {"CaseConverter\\": "src/"}
+    },
+    "autoload-dev": {
+        "psr-4": {"CaseConverter\\Tests\\": "tests/"}
+    },
+    "require": {
+        "phpunit/phpunit": "^6.3"
+    }
+}

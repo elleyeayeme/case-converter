@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="tests/autoload.php"
+         colors="true"
+         stopOnFailure="false">
+    <testsuites>
+        <testsuite name="Case conversation test suite">
+            <directory>./tests/</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
