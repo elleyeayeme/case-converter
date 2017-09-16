@@ -25,15 +25,17 @@ echo $converter->convert('aStringWith99Numbers')
     ->to('snake');
 ```
 
+See the Supported Formats section for a list of the tokens to pass to `from()` and `to()` for conversion.
+
 ## Supported Formats
 
 The formats supported at present are:
 
-- Camel case (helloWorld)
-- Kebab case (hello-world)
-- Snake case (hello_world)
-- Studly caps (HelloWorld)
-- Standard text (hello world)
+- Camel case (token: `camel`) i.e. thisIsCamelCase
+- Kebab case (token: `kebab`) i.e. this-is-kebab-case
+- Snake case (token: `snake`) i.e. this_is_snake_case
+- Studly caps (token: `studly`) i.e. ThisIsStudlyCaps
+- Standard text (token: `standard`) i.e. this is standard text
 
 ## License
 
