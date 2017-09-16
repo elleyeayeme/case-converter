@@ -4,10 +4,15 @@ namespace CaseConverter;
 
 class SnakeCaseConverter implements TypeCase
 {
-
     public function split(string $input): array
     {
-        // TODO: Implement split() method.
+        $words = explode('_', $input);
+
+        array_walk($words, function (&$word) {
+            $word = strtolower($word);
+        });
+
+        return $words;
     }
 
     public function join(array $parsed): string

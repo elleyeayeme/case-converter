@@ -34,4 +34,31 @@ class ConvertToArrayTest extends TestCase
 
         $this->assertEquals(['a', 'string', 'to', 'convert'], $converted->getInputArray());
     }
+
+    /** @test */
+    public function it_converts_snake_case_to_an_array()
+    {
+        $converted = $this->converter->convert('a_string_to_convert')
+            ->from('snake');
+
+        $this->assertEquals(['a', 'string', 'to', 'convert'], $converted->getInputArray());
+    }
+
+    /** @test */
+    public function it_converts_standard_case_to_an_array()
+    {
+        $converted = $this->converter->convert('a string to convert')
+            ->from('standard');
+
+        $this->assertEquals(['a', 'string', 'to', 'convert'], $converted->getInputArray());
+    }
+
+    /** @test */
+    public function it_converts_studly_caps_case_to_an_array()
+    {
+        $converted = $this->converter->convert('AStringToConvert')
+            ->from('studly');
+
+        $this->assertEquals(['a', 'string', 'to', 'convert'], $converted->getInputArray());
+    }
 }

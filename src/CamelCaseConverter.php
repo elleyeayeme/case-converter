@@ -8,7 +8,7 @@ class CamelCaseConverter implements TypeCase
     {
         $matches = [];
 
-        preg_match_all('/[A-Z][a-z]+/', $input, $matches, PREG_OFFSET_CAPTURE);
+        preg_match_all('/[A-Z][a-z]*/', $input, $matches, PREG_OFFSET_CAPTURE);
 
         $words = array_column($matches[0], 0);
 
