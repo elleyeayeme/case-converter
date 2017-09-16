@@ -1,6 +1,6 @@
 <?php
 
-namespace CaseConverter\Tests;
+namespace CaseConverter\Tests\Unit;
 
 use CaseConverter\CamelCaseConverter;
 use CaseConverter\CaseFactory;

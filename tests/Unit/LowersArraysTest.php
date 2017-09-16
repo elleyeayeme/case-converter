@@ -1,6 +1,6 @@
 <?php
 
-namespace CaseConverter\Tests;
+namespace CaseConverter\Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
 use CaseConverter\LowersArrays;
