@@ -8,6 +8,14 @@ class CaseConverter
 
     private $inputArray;
 
+    /** @var CaseFactory */
+    private $factory;
+
+    public function __construct()
+    {
+        $this->factory = new CaseFactory;
+    }
+
     public function convert($input)
     {
         $this->inputRaw = $input;
@@ -27,11 +35,17 @@ class CaseConverter
 
     public function from($format)
     {
-        $factory = new CaseFactory;
-        $inputConverter = $factory->getConverter($format);
+        $inputConverter = $this->factory->getConverter($format);
 
         $this->inputArray = $inputConverter->split($this->inputRaw);
 
         return $this;
+    }
+
+    public function to($format)
+    {
+        $outputConverter = $this->factory->getConverter($format);
+        
+        return $outputConverter->join($this->inputArray);
     }
 }

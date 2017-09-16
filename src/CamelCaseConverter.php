@@ -26,6 +26,12 @@ class CamelCaseConverter implements TypeCase
 
     public function join(array $parsed): string
     {
-        // TODO: Implement join() method.
+        $firstElement = array_shift($parsed);
+
+        array_walk($parsed, function (&$word) {
+            $word = ucwords($word);
+        });
+
+        return implode('', array_merge([$firstElement], $parsed));
     }
 }

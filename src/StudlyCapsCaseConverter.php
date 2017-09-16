@@ -21,6 +21,10 @@ class StudlyCapsCaseConverter implements TypeCase
 
     public function join(array $parsed): string
     {
-        // TODO: Implement join() method.
+        array_walk($parsed, function (&$word) {
+            $word = ucwords($word);
+        });
+
+        return implode('', $parsed);
     }
 }

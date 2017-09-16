@@ -17,6 +17,6 @@ class SnakeCaseConverter implements TypeCase
 
     public function join(array $parsed): string
     {
-        // TODO: Implement join() method.
+        return implode('_', $parsed);
     }
 }
