@@ -54,9 +54,14 @@ class CaseConverter
      *
      * @param string $format
      * @return CaseConverter
+     * @throws RawInputNotProvidedException
      */
     public function from(string $format): self
     {
+        if (! isset($this->inputRaw)) {
+            throw new RawInputNotProvidedException;
+        }
+
         $inputConverter = $this->factory->getConverter($format);
 
         $this->inputArray = $inputConverter->split($this->inputRaw);
@@ -69,9 +74,14 @@ class CaseConverter
      *
      * @param string $format
      * @return string
+     * @throws InputTypeNotSelectedException
      */
     public function to(string $format): string
     {
+        if (! isset($this->inputArray)) {
+            throw new InputTypeNotSelectedException;
+        }
+
         $outputConverter = $this->factory->getConverter($format);
         
         return $outputConverter->join($this->inputArray);

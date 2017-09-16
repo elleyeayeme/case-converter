@@ -9,6 +9,7 @@ class CaseFactory
      *
      * @param $format
      * @return TypeCase
+     * @throws InvalidTypeCaseException
      */
     public function getConverter($format): TypeCase
     {
@@ -28,6 +29,8 @@ class CaseFactory
             case 'standard':
                 return new StandardCaseConverter;
                 break;
+            default:
+                throw new InvalidTypeCaseException;
         }
     }
 }
