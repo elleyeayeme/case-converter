@@ -1,6 +1,13 @@
 {
     "name": "elleyeayeme/case-converter",
     "description": "A converter for strings in most popular cases",
+    "keywords": ["conversion", "camel", "kebab", "snake", "studly"],
+    "authors": [
+        {
+            "name": "Liam McElroy",
+            "email": "hello@liammcelroy.co.uk"
+        }
+    ],
     "type": "library",
     "license": "MIT",
     "autoload": {
