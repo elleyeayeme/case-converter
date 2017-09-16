@@ -13,6 +13,8 @@ class CaseConverterTest extends TestCase
     /** @var  CaseConverter */
     protected $loadedConverter;
 
+    protected $convertedArray = ['a', 'string', 'with', '99', 'numbers', 'to', 'convert'];
+
     public function setUp()
     {
         parent::setUp();
@@ -34,41 +36,41 @@ class CaseConverterTest extends TestCase
     /** @test */
     public function it_converts_from_camel_case_to_an_array()
     {
-        $converted = $this->converter->convert('aStringToConvert')->from('camel');
+        $converted = $this->converter->convert('aStringWith99NumbersToConvert')->from('camel');
 
-        $this->assertEquals(['a', 'string', 'to', 'convert'], $converted->getInputArray());
+        $this->assertEquals($this->convertedArray, $converted->getInputArray());
     }
 
     /** @test */
     public function it_converts_from_kebab_case_to_an_array()
     {
-        $converted = $this->converter->convert('A-String-To-Convert')->from('kebab');
+        $converted = $this->converter->convert('A-String-With-99-Numbers-To-Convert')->from('kebab');
 
-        $this->assertEquals(['a', 'string', 'to', 'convert'], $converted->getInputArray());
+        $this->assertEquals($this->convertedArray, $converted->getInputArray());
     }
 
     /** @test */
     public function it_converts_from_snake_case_to_an_array()
     {
-        $converted = $this->converter->convert('A_String_To_Convert')->from('snake');
+        $converted = $this->converter->convert('A_String_With_99_Numbers_To_Convert')->from('snake');
 
-        $this->assertEquals(['a', 'string', 'to', 'convert'], $converted->getInputArray());
+        $this->assertEquals($this->convertedArray, $converted->getInputArray());
     }
 
     /** @test */
     public function it_converts_from_standard_case_to_an_array()
     {
-        $converted = $this->converter->convert('A String To Convert')->from('standard');
+        $converted = $this->converter->convert('A String With 99 Numbers To Convert')->from('standard');
 
-        $this->assertEquals(['a', 'string', 'to', 'convert'], $converted->getInputArray());
+        $this->assertEquals($this->convertedArray, $converted->getInputArray());
     }
 
     /** @test */
     public function it_converts_from_studly_caps_case_to_an_array()
     {
-        $converted = $this->converter->convert('AStringToConvert')->from('studly');
+        $converted = $this->converter->convert('AStringWith99NumbersToConvert')->from('studly');
 
-        $this->assertEquals(['a', 'string', 'to', 'convert'], $converted->getInputArray());
+        $this->assertEquals($this->convertedArray, $converted->getInputArray());
     }
 
     /** @test */

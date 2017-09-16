@@ -18,50 +18,50 @@ class FullConversionTest extends TestCase
     /** @test */
     public function it_converts_from_camel_to_studly()
     {
-        $converted = $this->converter->convert('aStringToConvert')
+        $converted = $this->converter->convert('aStringWith99NumbersToConvert')
             ->from('camel')
             ->to('studly');
 
-        $this->assertEquals('AStringToConvert', $converted);
+        $this->assertEquals('AStringWith99NumbersToConvert', $converted);
     }
 
     /** @test */
     public function it_converts_from_kebab_to_standard()
     {
-        $converted = $this->converter->convert('a-string-to-convert')
+        $converted = $this->converter->convert('a-string-with-99-numbers-to-convert')
             ->from('kebab')
             ->to('standard');
 
-        $this->assertEquals('a string to convert', $converted);
+        $this->assertEquals('a string with 99 numbers to convert', $converted);
     }
 
     /** @test */
     public function it_converts_from_snake_to_kebab()
     {
-        $converted = $this->converter->convert('a_string_to_convert')
+        $converted = $this->converter->convert('a_string_with_99_numbers_to_convert')
             ->from('snake')
             ->to('kebab');
 
-        $this->assertEquals('a-string-to-convert', $converted);
+        $this->assertEquals('a-string-with-99-numbers-to-convert', $converted);
     }
 
     /** @test */
     public function it_converts_from_standard_to_snake()
     {
-        $converted = $this->converter->convert('a string to convert')
+        $converted = $this->converter->convert('a string with 99 numbers to convert')
             ->from('standard')
             ->to('snake');
 
-        $this->assertEquals('a_string_to_convert', $converted);
+        $this->assertEquals('a_string_with_99_numbers_to_convert', $converted);
     }
 
     /** @test */
     public function it_converts_from_studly_to_camel()
     {
-        $converted = $this->converter->convert('AStringToConvert')
+        $converted = $this->converter->convert('AStringWith99NumbersToConvert')
             ->from('studly')
             ->to('camel');
 
-        $this->assertEquals('aStringToConvert', $converted);
+        $this->assertEquals('aStringWith99NumbersToConvert', $converted);
     }
 }
