@@ -16,24 +16,46 @@ class CaseConverter
         $this->factory = new CaseFactory;
     }
 
-    public function convert($input)
+    /**
+     * Store the input string for manipulation.
+     *
+     * @param string $input
+     * @return CaseConverter
+     */
+    public function convert(string $input): self
     {
         $this->inputRaw = $input;
 
         return $this;
     }
 
-    public function getInputRaw()
+    /**
+     * Return the input string.
+     *
+     * @return string
+     */
+    public function getInputRaw(): string
     {
         return $this->inputRaw;
     }
 
-    public function getInputArray()
+    /**
+     * Return the split input.
+     *
+     * @return array
+     */
+    public function getInputArray(): array
     {
         return $this->inputArray;
     }
 
-    public function from($format)
+    /**
+     * Set the appropriate input converter class, and split the input.
+     *
+     * @param string $format
+     * @return CaseConverter
+     */
+    public function from(string $format): self
     {
         $inputConverter = $this->factory->getConverter($format);
 
@@ -42,7 +64,13 @@ class CaseConverter
         return $this;
     }
 
-    public function to($format)
+    /**
+     * Set the appropriate output converter class, and return the formatted output.
+     *
+     * @param string $format
+     * @return string
+     */
+    public function to(string $format): string
     {
         $outputConverter = $this->factory->getConverter($format);
         

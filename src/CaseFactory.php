@@ -4,7 +4,13 @@ namespace CaseConverter;
 
 class CaseFactory
 {
-    public function getConverter($format)
+    /**
+     * Get the appropriate converter class.
+     *
+     * @param $format
+     * @return TypeCase
+     */
+    public function getConverter($format): TypeCase
     {
         switch ($format) {
             case 'camel':
