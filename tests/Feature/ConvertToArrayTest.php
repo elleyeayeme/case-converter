@@ -29,7 +29,7 @@ class ConvertToArrayTest extends TestCase
     /** @test */
     public function it_converts_kebab_case_to_an_array()
     {
-        $converted = $this->converter->convert('a-string-to-convert')
+        $converted = $this->converter->convert('A-String-To-Convert')
             ->from('kebab');
 
         $this->assertEquals(['a', 'string', 'to', 'convert'], $converted->getInputArray());
@@ -38,7 +38,7 @@ class ConvertToArrayTest extends TestCase
     /** @test */
     public function it_converts_snake_case_to_an_array()
     {
-        $converted = $this->converter->convert('a_string_to_convert')
+        $converted = $this->converter->convert('A_String_To_Convert')
             ->from('snake');
 
         $this->assertEquals(['a', 'string', 'to', 'convert'], $converted->getInputArray());
@@ -47,7 +47,7 @@ class ConvertToArrayTest extends TestCase
     /** @test */
     public function it_converts_standard_case_to_an_array()
     {
-        $converted = $this->converter->convert('a string to convert')
+        $converted = $this->converter->convert('A String To Convert')
             ->from('standard');
 
         $this->assertEquals(['a', 'string', 'to', 'convert'], $converted->getInputArray());

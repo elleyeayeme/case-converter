@@ -4,6 +4,8 @@ namespace CaseConverter;
 
 class StudlyCapsCaseConverter implements TypeCase
 {
+    use LowersArrays;
+
     public function split(string $input): array
     {
         $matches = [];
@@ -12,9 +14,7 @@ class StudlyCapsCaseConverter implements TypeCase
 
         $words = array_column($matches[0], 0);
 
-        array_walk($words, function (&$word) {
-            $word = strtolower($word);
-        });
+        $this->lowerArray($words);
 
         return $words;
     }

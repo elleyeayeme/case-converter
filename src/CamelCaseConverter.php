@@ -4,6 +4,8 @@ namespace CaseConverter;
 
 class CamelCaseConverter implements TypeCase
 {
+    use LowersArrays;
+
     public function split(string $input): array
     {
         $matches = [];
@@ -17,9 +19,7 @@ class CamelCaseConverter implements TypeCase
             array_unshift($words, $firstWord);
         }
 
-        array_walk($words, function (&$word) {
-            $word = strtolower($word);
-        });
+        $this->lowerArray($words);
 
         return $words;
     }

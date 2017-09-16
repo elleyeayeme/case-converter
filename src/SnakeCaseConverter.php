@@ -4,13 +4,13 @@ namespace CaseConverter;
 
 class SnakeCaseConverter implements TypeCase
 {
+    use LowersArrays;
+
     public function split(string $input): array
     {
         $words = explode('_', $input);
 
-        array_walk($words, function (&$word) {
-            $word = strtolower($word);
-        });
+        $this->lowerArray($words);
 
         return $words;
     }
